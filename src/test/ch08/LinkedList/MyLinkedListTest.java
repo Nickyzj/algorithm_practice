@@ -8,31 +8,62 @@ import org.junit.After;
 
 public class MyLinkedListTest {
 
+    private MyLinkedList list = null;
     @Before
-    public void before() throws Exception {
+    public void before() {
+        list = new MyLinkedList();
+        list.addNode(5);
+        list.addNode(5);
+        list.addNode(1);
+        list.addNode(1);
+        list.addNode(3);
+        list.addNode(3);
     }
 
     @After
-    public void after() throws Exception {
+    public void after() {
+        list = null;
     }
 
-    /**
-     * Method: addNode(int d)
-     */
     @Test
-    public void testAddNode() throws Exception {
-        MyLinkedList list = new MyLinkedList();
-        list.addNode(5);
-        list.addNode(3);
-        list.addNode(1);
-        list.addNode(3);
-        assert list.length() == 4;
+    public void testAddNode(){
+        assert list.length() == 6;
         System.out.println("ListLen = " + list.length());
         list.printList();
         list.delNode(2);
-        assert list.length() == 3;
+        assert list.length() == 5;
         list.printList();
     }
 
+    @Test
+    public void testOrderList(){
+        list.orderList();
+        list.printList();
+    }
 
-} 
+    @Test
+    public void testDeleteDuplicate(){
+        list.deleteDuplicate();
+        list.printList();
+    }
+
+    @Test
+    public void testDeleteDuplicate2(){
+        list.deleteDuplicate2();
+        list.printList();
+    }
+
+    @Test
+    public void testDeleteDuplicate3(){
+        list.deleteDuplicate3();
+        list.printList();
+    }
+
+    @Test
+    public void testFindElement(){
+        Node testNode = list.findElement(10);
+        assert testNode == null;
+        testNode = list.findElement(1);
+        assert testNode.getData() == 3;
+    }
+}
