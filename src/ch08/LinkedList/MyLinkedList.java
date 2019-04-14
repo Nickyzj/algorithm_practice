@@ -61,6 +61,15 @@ public class MyLinkedList {
         System.out.println();
     }
 
+    public void printMyList(Node head) {
+        Node pointer = head;
+        while (pointer != null) {
+            System.out.print(pointer.getData() + " ");
+            pointer = pointer.getNext();
+        }
+        System.out.println();
+    }
+
     public Node orderList() {
         if (head == null) return null;
         Node currentNode = head;
@@ -145,5 +154,27 @@ public class MyLinkedList {
             nodeK = nodeK.next;
         }
         return node;
+    }
+
+    public Node reverseIteratively() {
+        if (head == null) return null;
+        if (head.next == null) return head;
+        Node previousNode = head;
+        Node currentNode = head.next;
+        if (currentNode.next == null) {
+            previousNode.next = null;
+            currentNode.next = previousNode;
+        }
+        Node nextNode = currentNode.next;
+        previousNode.next = null;
+        while (nextNode.next != null) {
+            currentNode.next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+            nextNode = nextNode.next;
+        }
+        currentNode.next = previousNode;
+        nextNode.next = currentNode;
+        return nextNode;
     }
 }

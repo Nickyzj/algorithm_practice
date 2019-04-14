@@ -13,11 +13,11 @@ public class MyLinkedListTest {
     public void before() {
         list = new MyLinkedList();
         list.addNode(5);
-        list.addNode(5);
-        list.addNode(1);
-        list.addNode(1);
+        list.addNode(4);
         list.addNode(3);
-        list.addNode(3);
+        list.addNode(2);
+        list.addNode(1);
+//        list.addNode(1);
     }
 
     @After
@@ -65,5 +65,11 @@ public class MyLinkedListTest {
         assert testNode == null;
         testNode = list.findElement(1);
         assert testNode.getData() == 3;
+    }
+
+    @Test
+    public void testReverseIteratively() {
+        Node node = list.reverseIteratively();
+        list.printMyList(node);
     }
 }
