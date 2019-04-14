@@ -1,4 +1,4 @@
-package test.ch08.LinkedList;
+package ch08.LinkedList.test;
 
 import ch08.LinkedList.MyLinkedList;
 import ch08.LinkedList.Node;
