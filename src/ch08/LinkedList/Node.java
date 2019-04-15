@@ -1,7 +1,7 @@
 package ch08.LinkedList;
 
 public class Node {
-    Node next = null;
+    public Node next = null;
     int data;
 
     public int getData() {

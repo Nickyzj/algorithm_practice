@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class MyLinkedList {
-    private Node head = null;
+    public Node head = null;
 
     public void addNode(int d) {
         if (head == null) {
@@ -177,4 +177,22 @@ public class MyLinkedList {
         nextNode.next = currentNode;
         return nextNode;
     }
+
+    public Node reverseIteratively2() {
+        Node reverseHead = head;
+        Node currentNode = head;
+        Node preNode = null;
+        Node nextNode;
+        while (currentNode != null){
+            nextNode = currentNode.next;
+            if (nextNode == null) {
+                reverseHead = currentNode;
+            }
+            currentNode.next = preNode;
+            preNode = currentNode;
+            currentNode = nextNode;
+        }
+        return reverseHead;
+    }
+
 }

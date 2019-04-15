@@ -72,4 +72,11 @@ public class MyLinkedListTest {
         Node node = list.reverseIteratively();
         list.printMyList(node);
     }
+
+    @Test
+    public void testReverseIteratively2() {
+        Node node = list.reverseIteratively2();
+        list.printMyList(node);
+    }
+
 }
